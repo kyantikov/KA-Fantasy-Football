@@ -22,9 +22,10 @@ export class LoginComponent implements OnInit {
   }
 
   Login(){
+    console.log(this.loginUser);
     this._accountService.loginUser(this.loginUser).subscribe(user =>{
       console.log(user);
-      this._router.navigate(['dashboard']);
+      // this._router.navigate(['dashboard']);
     })
   }
 
