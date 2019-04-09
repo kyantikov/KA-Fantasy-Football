@@ -1,3 +1,6 @@
-<p>
-  login works!
-</p>
+<h1>LOGIN</h1>
+<form (submit)="Login()">
+  <input type="text" [(ngModel)]="loginUser.email" name="loginUser.email" placeholder="Email">
+  <input type="password" [(ngModel)]="loginUser.password" name="loginUser.password" placeholder="Password">
+  <input type="submit" value="Login">
+</form>
