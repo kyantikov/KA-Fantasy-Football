@@ -4,22 +4,22 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
+import { AccountModule } from './account/account.module';
 
 import { HttpClientModule } from '@angular/common/http';
 import { HttpService } from './http.service';
-import { RegisterComponent } from './register/register.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    RegisterComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AccountModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
