@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { AccountModule } from './account/account.module';
-import { AccRoutingModule } from './account/acc-routing.module';
+import { DashboardModule } from './dashboard/dashboard.module';
 
 import { HttpClientModule } from '@angular/common/http';
 import { HttpService } from './http.service';
@@ -21,7 +21,7 @@ import { HttpService } from './http.service';
     FormsModule,
     AppRoutingModule,
     AccountModule,
-    AccRoutingModule,
+    DashboardModule,
   ],
   providers: [HttpService],
   bootstrap: [AppComponent]
