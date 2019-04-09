@@ -7,11 +7,13 @@ import { FormsModule } from '@angular/forms';
 
 import { HttpClientModule } from '@angular/common/http';
 import { HttpService } from './http.service';
+import { RegisterComponent } from './register/register.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
