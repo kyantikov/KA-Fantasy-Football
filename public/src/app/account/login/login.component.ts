@@ -25,7 +25,12 @@ export class LoginComponent implements OnInit {
     console.log(this.loginUser);
     this._accountService.loginUser(this.loginUser).subscribe(user =>{
       console.log(user);
-      // this._router.navigate(['dashboard']);
+      if(user['message'] == "error"){
+        this.errors = user['error'];
+        this.loginUser = {email: '', password: ''};
+      } else {
+        this._router.navigate(['dashboard']);
+      }
     })
   }
 
