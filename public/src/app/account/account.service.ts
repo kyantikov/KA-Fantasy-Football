@@ -11,4 +11,8 @@ export class AccountService {
     return this._http.put('/user/login', user);
   }
 
+  registerUser(newUser){
+    
+  }
+
 }
