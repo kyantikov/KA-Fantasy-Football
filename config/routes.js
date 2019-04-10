@@ -5,17 +5,17 @@ const Sequelize = require('sequelize')
 
 module.exports = function(app){
     // -------------------------- user routes -----------------------------
-    app.get('/users', function(req,res){
+    app.get('/user', function(req,res){
         ffApp.getAllUsers(req,res);
     });
-    app.post('/user/register', function(req,res){
+    app.post('/user', function(req,res){
         ffApp.registerUser(req,res);
     });
-    app.put('/user/login', function(req,res){
+    app.put('/login', function(req,res){
         ffApp.loginUser(req,res);
     });
     
-    app.get('/user/logout', function(req,res) {
+    app.get('/logout', function(req,res) {
         ffApp.logOutUser(req,res);
     })
     app.get('/session', function(req,res){

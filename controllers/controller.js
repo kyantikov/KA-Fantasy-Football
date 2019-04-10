@@ -21,6 +21,7 @@ module.exports = {
         }).catch(Sequelize.ValidationError, function (err) {
             res.json({ message: "error", err })
         });
+        
     },
 
     updateUserInfo: function(req,res){
@@ -39,7 +40,7 @@ module.exports = {
                 id: req.params.user_id
             }
         }).then(function(result){
-            res.json({message:"Success", data:result})
+            res.json({message:"success", data:result})
         })
     },
 
@@ -131,7 +132,7 @@ module.exports = {
     // ------------------------------ league logic ------------------------------------
     getAllLeagues: function(req,res){
         db.league.findAll({}).then(function(result){
-            res.json({message:"Success", data:result})
+            res.json({message:"success", data:result})
         })
     },
 
