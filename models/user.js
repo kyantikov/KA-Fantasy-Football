@@ -3,11 +3,15 @@ module.exports = function (sequelize, DataTypes) {
     var user = sequelize.define('user', {
         first_name:{ 
             type: DataTypes.STRING,
-            notNull:true
+            validate: {
+                notEmpty:{msg:'First name is required'}
+            }
         },
         last_name:{
             type:DataTypes.STRING,
-            notNull:true,
+            validate: {
+                notEmpty:{msg:'Last name is required'}
+            }
         },
         email: {
             type: DataTypes.STRING,
@@ -21,10 +25,10 @@ module.exports = function (sequelize, DataTypes) {
         },
         password: {
             type: DataTypes.STRING,
-            notEmpty: {
-                msg: "Password is required"
-            } ,
-            notNull:true
+            validate:{
+                notEmpty: {msg:'Password is required'},
+                len: {args:[8,50], msg:'Password must be greater than 8 characters'},
+            },
         }
     });
     user.associate = function (models) {

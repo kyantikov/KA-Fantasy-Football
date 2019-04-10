@@ -5,19 +5,19 @@ module.exports = (sequelize, DataTypes) => {
     league_name: {
       type: DataTypes.STRING,
       validate:{
-        notEmpty:{msg:"League name is required."}
+        notEmpty:{msg:"League name is required"}
       },
     },
     draft_date:{
       type:DataTypes.DATE,
       validate:{
-        notEmpty:{msg:"Draft Date is required."},
+        notEmpty:{msg:"Draft Date is required"},
       }
     },
     max_teams:{
       type:DataTypes.INTEGER,
       validate:{
-        notEmpty:{msg:"max teams required"}
+        notEmpty:{msg:"Max teams required"}
       }
     },
     team_count:{
