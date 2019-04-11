@@ -1,13 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { AccountService } from '../account.service';
 import { ActivatedRoute, Router } from '@angular/router';
-
-export interface Errors {
-  first_name:string,
-  last_name:string,
-  email:string,
-  password:string,
-}
 
 @Component({
   selector: 'app-register',
@@ -15,17 +9,26 @@ export interface Errors {
   styleUrls: ['./register.component.sass']
 })
 export class RegisterComponent implements OnInit {
+  form: FormGroup;
 
   constructor(
     private _route: ActivatedRoute,
     private _router: Router,
-    private _accountService: AccountService
-  ) { }
+    private _accountService: AccountService,
+    private fb: FormBuilder,
+  ){
+    this.form = fb.group({
+      first_name: ['', Validators.required],
+      last_name: ['', Validators.required],
+      email: ['', Validators.email],
+      password: ['', Validators.required, Validators.minLength(8)],
+    });
+  }
 
   pwc: any;
   passConfirm: string;
   newUser: any;  
-  errors: Errors;
+  errors: any;
 
   ngOnInit() {
     this.newUser = {
@@ -39,27 +42,21 @@ export class RegisterComponent implements OnInit {
     this.passConfirm = '';
   }
 
-  Register(){
-    this.errors=null;
-    if (this.pwc != this.newUser.password){
-      this.passConfirm = 'Passwords do not match';
-    } else {
-      this._accountService.registerUser(this.newUser).subscribe(newUser => {
-        if(newUser['message'] == 'error'){
-          var submissionErrors = newUser['err']['error'];
-          // for(var i of submissionErrors){
-          //   if(submissionErrors[i]['path'] == 'first_name'){
-
-          //   }
-          // }
-          this.newUser = {email: '', password: ''};
-          this.pwc = '';
-          console.log(this.errors);
-        } else {
-          this._router.navigate(['dashboard']);
-        }
-      })
-    }
-  }
+  // onRegister(){
+  //   this.errors=null;
+  //   if (this.pwc != this.newUser.password){
+  //     this.passConfirm = 'Passwords do not match';
+  //   } else {
+  //     this._accountService.registerUser(this.newUser).subscribe(newUser => {
+  //       if(newUser['message'] == 'error'){
+  //         this.newUser = {email: '', password: ''};
+  //         this.pwc = '';
+  //         console.log(this.errors);
+  //       } else {
+  //         this._router.navigate(['dashboard']);
+  //       }
+  //     })
+  //   }
+  // }
 
 }
