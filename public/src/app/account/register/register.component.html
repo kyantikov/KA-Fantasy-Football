@@ -1,10 +1,10 @@
 <h1>REGISTER</h1>
-<form (submit)="Register()">
-  <input type="text" placeholder="First Name" name="newUser.first_name" [(ngModel)]="newUser.first_name" #name="ngModel">
-  <input type="text" placeholder="Last Name" name="newUser.last_name" [(ngModel)]="newUser.last_name" #name="ngModel">
-  <input type="text" placeholder="Email" name="newUser.email" [(ngModel)]="newUser.email" >
-  <input type="text" placeholder="Password" name="newUser.password" [(ngModel)]="newUser.password" #name="ngModel">
-  <input type="text" placeholder="Confirm Password" name="pwc" [(ngModel)]="pwc" #name="ngModel">
+<form [formGroup]="form" (ngSubmit)="onRegister()">
+  <input type="text" placeholder="First Name" name="first_name" formControlName="first_name">
+  <input type="text" placeholder="Last Name" name="last_name" formControlName="last_name">
+  <input type="text" placeholder="Email" name="email" formControlName="email">
+  <input type="text" placeholder="Password" name="password" formControlName="password">
+  <input type="text" placeholder="Confirm Password" name="pwc">
   <div *ngIf="passConfirm">
     <p>{{passConfirm}}</p>
   </div>
